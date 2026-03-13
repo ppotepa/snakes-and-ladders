@@ -11,8 +11,8 @@ chmod +x game.sh
 
 Press ENTER to roll. Type 'q' to quit.
 
-**Mechanics:**
-- 🪜 **Ladders give** - land on a ladder, climb up
-- 🐍 **Snakes take** - land on a snake, slide down
-- Roll a 6-sided die each turn
-- Reach position 100 to win
+Mechanics:
+- Ladders give: land on a ladder to climb up.
+- Snakes take: land on a snake to slide down.
+- A six-sided die determines each move.
+- Reach position 100 to win.

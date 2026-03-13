@@ -5,13 +5,12 @@
 
 BOARD_SIZE=100
 POSITION=1
-BOARD=($(for ((i=1; i<=BOARD_SIZE; i++)); do echo $i; done))
 
 # Define snakes (position -> move_to)
-declare -A SNAKES=([99]=80 [87]=24 [62]=18 [51]=6 [37]=3]
+declare -A SNAKES=([99]=80 [87]=24 [62]=18 [51]=6 [37]=3)
 
 # Define ladders (position -> move_to)
-declare -A LADDERS=([3]=22 [5]=14 [9]=31 [20]=38 [28]=84 [51]=67 [72]=91]
+declare -A LADDERS=([3]=22 [5]=14 [9]=31 [20]=38 [28]=84 [51]=67 [72]=91)
 
 roll_dice() {
   echo $((1 + RANDOM % 6))
@@ -26,19 +25,20 @@ move_player() {
   fi
   
   if [ ${SNAKES[$POSITION]:-0} -ne 0 ]; then
-    echo "🐍 SNAKE at $POSITION! Sliding down to ${SNAKES[$POSITION]}"
+    echo "SNAKE at $POSITION. Sliding down to ${SNAKES[$POSITION]}"
     POSITION=${SNAKES[$POSITION]}
   elif [ ${LADDERS[$POSITION]:-0} -ne 0 ]; then
-    echo "🪜 LADDER at $POSITION! Climbing up to ${LADDERS[$POSITION]}"
+    echo "LADDER at $POSITION. Climbing up to ${LADDERS[$POSITION]}"
     POSITION=${LADDERS[$POSITION]}
   fi
 }
 
 draw_board() {
   clear
-  echo "╔════════════════════════════════════════╗"
-  echo "║      SNAKES & LADDERS - BASH GAME     ║"
-  echo "╚════════════════════════════════════════╝"
+  echo "------------------------------------------"
+  echo " SNAKES AND LADDERS - PROOF OF CONCEPT"
+  echo " LADDERS GIVE, SNAKES TAKE"
+  echo "------------------------------------------"
   echo ""
   echo "Position: $POSITION / $BOARD_SIZE"
   echo ""
@@ -57,7 +57,7 @@ main() {
     draw_board
     
     if [ $POSITION -ge $BOARD_SIZE ]; then
-      echo "🎉 YOU WIN! Reached position $POSITION!"
+      echo "You win. Reached position $POSITION."
       break
     fi
     
@@ -65,7 +65,7 @@ main() {
     [ "$input" = "q" ] && exit 0
     
     roll=$(roll_dice)
-    echo "🎲 Rolled: $roll"
+    echo "Rolled: $roll"
     move_player $roll
     echo "Now at: $POSITION"
     sleep 1.5
