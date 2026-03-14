@@ -1,15 +1,14 @@
-# Snakes & Ladders
+# Snakes & Ladders (Rust)
 
-A minimal proof-of-concept bash game. Roll the dice, climb ladders, avoid snakes.
+Fresh Rust CLI boilerplate for Snakes and Ladders.
 
-## Play
+## Run
 
 ```bash
-chmod +x game.sh
-./game.sh
+cargo run
 ```
 
-Press ENTER to roll. Type 'q' to quit.
+Press ENTER to roll. Type `q` to quit.
 
 Mechanics:
 - Ladders give: land on a ladder to climb up.
@@ -18,3 +17,20 @@ Mechanics:
 - Reach position 100 to win.
 
 currently out of juice
+
+## Test
+
+```bash
+cargo test
+```
+
+## Optional format check
+
+```bash
+cargo fmt --check
+```
+
+## Notes
+
+- `game.sh` is kept as the original bash proof-of-concept.
+- Rust boilerplate lives in `src/` and is structured for easy extension.
