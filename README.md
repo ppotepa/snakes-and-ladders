@@ -8,6 +8,7 @@ Fresh Rust CLI boilerplate for Snakes and Ladders.
 cargo run
 ```
 
+At startup, enter your player name (the name `snake` is blocked).
 Press ENTER to roll. Type `q` to quit.
 
 Mechanics:
